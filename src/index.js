@@ -13,7 +13,11 @@ const createNotEnumerableProperty = (prop) => {
     return prop;
 }
 
-const createProtoMagicObject = () => {};
+const createProtoMagicObject = (prop) => {
+   function magicObj (){}
+   magicObj.__proto__=magicObj.prototype;
+   return magicObj;
+};
 const incrementor = () => {};
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
