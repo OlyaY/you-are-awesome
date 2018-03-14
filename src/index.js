@@ -18,7 +18,14 @@ const createProtoMagicObject = (prop) => {
     return magicObj;
 };
 
-const incrementor = () => {};
+let val = 0;
+const incrementor = () => {
+    Object.__proto__.valueOf = function () {
+		return val;
+	}
+    val++;
+    return incrementor;
+};
 
 let count = 0;
 const asyncIncrementor = () => {
@@ -40,8 +47,8 @@ const returnBackInSecond = (value) =>
 
 const getDeepPropertiesCount = () => {};
 
-const createSerializedObject = (obj) => {
-
+const createSerializedObject = () => {
+    return JSON.parse(JSON.stringify({}));
 };
 const toBuffer = () => {};
 const sortByProto = (array) => {
