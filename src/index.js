@@ -20,7 +20,7 @@ const createProtoMagicObject = (prop) => {
 
 const incrementor = () => {};
 
-let count =0;
+let count = 0;
 const asyncIncrementor = () => {
     return new Promise((resolved) => {
         count++;
@@ -31,9 +31,11 @@ const asyncIncrementor = () => {
 const createIncrementer = () => {};
 
 // return same argument not earlier than in one second, and not later, than in two
-const returnBackInSecond = (param) => {
-
-};
+const returnBackInSecond = (value) =>
+    new Promise(resolve =>
+        setTimeout(() => {
+            resolve(value)
+        }, 1000));
 //var timerId = setTimeout(func / code, delay[, arg1, arg2...])
 
 const getDeepPropertiesCount = () => {};
